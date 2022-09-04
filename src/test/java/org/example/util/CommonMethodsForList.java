@@ -44,7 +44,9 @@ public class CommonMethodsForList {
 
     public static boolean isListContainsString(List<String> list, String str) {
         for (String s : list) {
-            return s.contains(str);
+            if (s.contains(str)) {
+                return true;
+            }
         }
         return false;
     }

@@ -33,12 +33,8 @@ public class ResultPage extends BasePage {
         return driver.findElements(By.xpath("//div[@class='colorsprite aok-float-left']"));
     }
 
-    public WebElement getSeeMoreLessButtonOfModelYear() {
-        return driver.findElement(By.xpath("//ul[contains(@aria-labelledby,'nine_browse-bin-title')]//a[@data-csa-interaction-events='click']"));
-    }
-
     public List<WebElement> getListOfYearsInFilter() {
-        return driver.findElements(By.xpath("//ul[@aria-labelledby='p_n_feature_nine_browse-bin-title']/li[@class='a-spacing-micro']"));
+        return driver.findElements(By.xpath("//ul[@aria-labelledby='p_n_feature_nine_browse-bin-title']/li[@class='a-spacing-micro']//a/span"));
     }
 
     public List<WebElement> getListOfItemsName() {
@@ -88,10 +84,6 @@ public class ResultPage extends BasePage {
     public void clickOnRandomColor() {
         int randomIndex = CommonMethodsForList.getRandomIndexInList(getListOfColors());
         getListOfColors().get(randomIndex).click();
-    }
-
-    public boolean isSeeMoreLessButtonDisplayedInModalYear() {
-        return getSeeMoreLessButtonOfModelYear().isDisplayed();
     }
 
     public boolean isButtonDisplayedInTheYearFilter(String str) {

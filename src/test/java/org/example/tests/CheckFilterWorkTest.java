@@ -1,14 +1,10 @@
 package org.example.tests;
 
 import org.example.driver.BaseTest;
-import org.example.object.User;
-import org.example.service.LoginPageService;
 import org.example.service.ResultPageService;
 import org.example.service.StartedPageService;
-import org.example.service.UserService;
 import org.example.util.CommonMethodsForList;
 import org.hamcrest.Matchers;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -23,18 +19,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CheckFilterWorkTest extends BaseTest {
 
-    private StartedPageService startedPageService;
+    private StartedPageService startedPageService = new StartedPageService();
     private ResultPageService resultPageService;
-//    private LoginPageService loginPageService;
-
-
-    @BeforeClass(alwaysRun = true)
-    public void registration() {
-//        User user = UserService.credentials();
-        startedPageService = new StartedPageService();
-//        loginPageService = startedPageService.clickOnSignInMenu();
-//        startedPageService = loginPageService.logIn(user);
-    }
 
     @BeforeMethod(alwaysRun = true)
     public void searchElement() {
@@ -55,9 +41,8 @@ public class CheckFilterWorkTest extends BaseTest {
 
     @Test(description = "4")
     public void isSeeMoreButtonDisplayedTest() {
-        assertThat("The 'See more' button isn`t displayed", resultPageService.isSeeMoreLessButtonDisplayedInModalYear());
+        assertThat("The 'See more' button isn`t displayed", resultPageService.isButtonDisplayedInTheYearFilter("See more"));
     }
-
 
     @DataProvider(name = "modelYears")
     public static Object[][] createData() {

@@ -60,12 +60,6 @@ public class ResultPageService extends BasePageService {
         resultPage.clickOnRandomColor();
     }
 
-    public boolean isSeeMoreLessButtonDisplayedInModalYear() {
-        boolean result = resultPage.isSeeMoreLessButtonDisplayedInModalYear();
-        log.info("See more/less button is displayed - " + result);
-        return result;
-    }
-
     public boolean isButtonDisplayedInTheYearFilter(String str) {
         boolean result = resultPage.isButtonDisplayedInTheYearFilter(str);
         log.info(str + " button is displayed - " + result);

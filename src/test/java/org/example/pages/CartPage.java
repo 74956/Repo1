@@ -8,11 +8,11 @@ public class CartPage extends BasePage {
     private final String ITEM_INFORMATION_CARD = "//div[@id='sw-atc-details-single-container']";
 
     public WebElement getConfirmedIconAddedToCart() {
-        return driver.findElement(By.xpath("//i[@class='a-icon a-icon-alert']"));
+        return driver.findElement(By.xpath("//div[contains(@class,'message')]//i[@class='a-icon a-icon-alert']"));
     }
 
     public WebElement getGoToCartButton() {
-        return driver.findElement(By.xpath("(//span//a[contains(@href,'gp/cart')])[1]"));
+        return driver.findElement(By.xpath("//span[@id='sw-gtc']//a[contains(@href,'gp/cart')]"));
     }
 
     public WebElement getMsgAboutAddedItemToCart() {
@@ -36,12 +36,11 @@ public class CartPage extends BasePage {
     }
 
     public void clickOnGoToCartButton() {
-        if(getGoToCartButton().isDisplayed()) {
+        if (getGoToCartButton().isDisplayed()) {
             getGoToCartButton().click();
         } else {
             driver.navigate().refresh();
             waiters.fluentWaitVisibilityOfElement(getGoToCartButton()).click();
         }
     }
-
 }

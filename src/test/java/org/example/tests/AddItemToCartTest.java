@@ -2,17 +2,13 @@ package org.example.tests;
 
 import org.example.driver.BaseTest;
 import org.example.service.CartPageService;
-import org.example.service.LoginPageService;
 import org.example.service.ProductPageService;
 import org.example.service.ResultPageService;
 import org.example.service.ShoppingCartPageService;
 import org.example.service.StartedPageService;
-import org.example.object.User;
-import org.example.service.UserService;
 import org.example.util.GetProperties;
 import org.hamcrest.Matchers;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,21 +17,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class AddItemToCartTest extends BaseTest {
 
     private ProductPageService productPageService;
-    private StartedPageService startedPageService;
+    private StartedPageService startedPageService = new StartedPageService();
     private ResultPageService resultPageService;
     private CartPageService cartPageService;
-    private ShoppingCartPageService shoppingCartPageService;
-    private LoginPageService loginPageService;
-
-    @BeforeClass(alwaysRun = true)
-    public void registration() {
-//        User user = UserService.credentials();
-
-        startedPageService = new StartedPageService();
-        shoppingCartPageService = new ShoppingCartPageService();
-//        loginPageService = startedPageService.clickOnSignInMenu();
-//        startedPageService = loginPageService.logIn(user);
-    }
+    private ShoppingCartPageService shoppingCartPageService = new ShoppingCartPageService();
 
     @BeforeMethod(alwaysRun = true)
     public void searchElement() {
