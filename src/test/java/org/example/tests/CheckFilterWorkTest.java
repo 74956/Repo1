@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import org.example.driver.BaseTest;
+import org.example.service.ProductPageService;
 import org.example.service.ResultPageService;
 import org.example.service.StartedPageService;
 import org.example.util.CommonMethodsForList;
@@ -21,12 +22,26 @@ public class CheckFilterWorkTest extends BaseTest {
 
     private StartedPageService startedPageService = new StartedPageService();
     private ResultPageService resultPageService;
+    private ProductPageService productPageService;
 
     @BeforeMethod(alwaysRun = true)
     public void searchElement() {
         startedPageService.goToMainPage();
         resultPageService = startedPageService.fillSearchField("iPhone");
-        resultPageService.clickOnSubmitButton();
+        resultPageService.clickOnSearchButton();
+    }
+
+    @Test(description = "1.2")
+    public void checkSearch() {
+        assertThat("List of items is empty", !resultPageService.isListEmpty());
+    }
+
+    @Test(description = "1.3")
+    public void cartIsEmpty() {
+        productPageService = resultPageService.clickOnFirstElementInListOfItems();
+        int quantity = productPageService.getQuantityOfItemsInTheCart();
+        assertThat("Cart is not empty by default", quantity, Matchers.equalTo(0));
+        assertThat("'Add to cart button is not displayed'", productPageService.isAddToCartButtonDisplayed());
     }
 
     @Test(description = "4")

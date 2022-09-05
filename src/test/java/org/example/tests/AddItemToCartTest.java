@@ -33,35 +33,14 @@ public class AddItemToCartTest extends BaseTest {
 
     @Test(description = "1.3")
     public void isProductImageDisplayed() {
-        assertThat("The image of added item is displayed", cartPageService.isProductImageDisplayed());
-    }
-
-    @Test(description = "1.3")
-    public void isTextDisplayed() {
-        assertThat("Check added msg", cartPageService.getMsgText(), Matchers.equalTo("Added to Cart"));
-    }
-
-    @Test(description = "1.3")
-    public void isIconColorGreen() {
-        assertThat("Color is not green", cartPageService.getColor(), Matchers.equalTo(GetProperties.getProperties("config", "greenColor")));
-    }
-
-    @Test(description = "1.3")
-    public void isQuantityChangeInTheCart() {
         int quantity = productPageService.getQuantityOfItemsInTheCart();
+        assertThat("The image of added item is displayed", cartPageService.isProductImageDisplayed());
+        assertThat("Check added msg", cartPageService.getMsgText(), Matchers.equalTo("Added to Cart"));
+        assertThat("Color is not green", cartPageService.getColor(), Matchers.equalTo(GetProperties.getProperties("config", "greenColor")));
         assertThat("Cart is empty or has more than 1 item", quantity, Matchers.equalTo(1));
-    }
-
-    @Test(description = "1.4")
-    public void isShoppingCartOpened() {
         cartPageService.clickOnGoToCartButton();
         assertThat("Shopping cart isn`t displayed", shoppingCartPageService.isShoppingCartDisplayed("Shopping Cart"));
-    }
-
-    @Test(description = "1.4")
-    public void isAddedItemsDisplayedInTheShoppingCart() {
-        cartPageService.clickOnGoToCartButton();
-        assertThat("Added items aren`t displayed in the shopping cart", !shoppingCartPageService.isListOfElementsInTheShoppingCartEmpty());
+        assertThat("Shopping cart is empty", !shoppingCartPageService.isListOfElementsInTheShoppingCartEmpty());
     }
 
     @AfterMethod(alwaysRun = true)

@@ -25,7 +25,7 @@ public class CompareObjectsInTheCartTest extends BaseTest {
     private StartedPageService startedPageService = new StartedPageService();
     private ResultPageService resultPageService;
     private CartPageService cartPageService;
-    private ShoppingCartPageService shoppingCartPageService = new ShoppingCartPageService();
+    private ShoppingCartPageService shoppingCartPageService;
     private List<String> list;
 
     @BeforeMethod(alwaysRun = true)
@@ -47,7 +47,7 @@ public class CompareObjectsInTheCartTest extends BaseTest {
                 Matchers.equalTo(expectedPhone));
     }
 
-    @Test(enabled = false, description = "Task3")
+    @Test(description = "Task3")
     public void checkGamingMouseDescription() {
         list = ReadDataFromFile.getDataFromProperties("3.1");
         GamingMouseProduct expectedGamingMouse = new GamingMouseProduct(list);
@@ -62,7 +62,7 @@ public class CompareObjectsInTheCartTest extends BaseTest {
                 Matchers.equalTo(expectedGamingMouse));
     }
 
-    @Test(enabled = false, description = "Task3")
+    @Test(description = "Task3")
     public void checkHeadsetDescription() {
         list = ReadDataFromFile.getDataFromProperties("3.2");
         HeadsetProduct expectedHeadset = new HeadsetProduct(list);

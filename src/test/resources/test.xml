@@ -5,10 +5,8 @@
         <classes>
             <class name="org.example.tests.AddItemToCartTest"/>
             <class name="org.example.tests.AuthorizationTest"/>
-            <class name="org.example.tests.CheckBaseProductQuantityInTheCartTest"/>
             <class name="org.example.tests.CheckFilterWorkTest"/>
             <class name="org.example.tests.CompareObjectsInTheCartTest"/>
-            <class name="org.example.tests.SearchBaseProductTest"/>
         </classes>
     </test>
 </suite>
