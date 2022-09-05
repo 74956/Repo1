@@ -26,7 +26,7 @@ public class AddItemToCartTest extends BaseTest {
     public void searchElement() {
         startedPageService.goToMainPage();
         resultPageService = startedPageService.fillSearchField("iPhone");
-        resultPageService.clickOnSubmitButton();
+        resultPageService.clickOnSearchButton();
         productPageService = resultPageService.clickOnFirstElementInListOfItems();
         cartPageService = productPageService.clickAddCartButton();
     }

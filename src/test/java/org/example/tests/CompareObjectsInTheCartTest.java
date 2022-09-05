@@ -38,7 +38,7 @@ public class CompareObjectsInTheCartTest extends BaseTest {
         list = ReadDataFromFile.getDataFromProperties("3");
         PhoneProduct expectedPhone = new PhoneProduct(list);
         resultPageService = startedPageService.fillSearchField(expectedPhone.getName());
-        resultPageService.clickOnSubmitButton();
+        resultPageService.clickOnSearchButton();
         productPageService = resultPageService.clickOnElementInTheList((expectedPhone.getName()));
         cartPageService = productPageService.clickAddCartButton();
         shoppingCartPageService = cartPageService.clickOnGoToCartButton();
@@ -52,7 +52,7 @@ public class CompareObjectsInTheCartTest extends BaseTest {
         list = ReadDataFromFile.getDataFromProperties("3.1");
         GamingMouseProduct expectedGamingMouse = new GamingMouseProduct(list);
         resultPageService = startedPageService.fillSearchField(expectedGamingMouse.getName());
-        resultPageService.clickOnSubmitButton();
+        resultPageService.clickOnSearchButton();
         productPageService = resultPageService.clickOnElementInTheList(expectedGamingMouse.getName());
         cartPageService = productPageService.clickAddCartButton();
         shoppingCartPageService = cartPageService.clickOnGoToCartButton();
@@ -67,7 +67,7 @@ public class CompareObjectsInTheCartTest extends BaseTest {
         list = ReadDataFromFile.getDataFromProperties("3.2");
         HeadsetProduct expectedHeadset = new HeadsetProduct(list);
         resultPageService = startedPageService.fillSearchField(expectedHeadset.getName());
-        resultPageService.clickOnSubmitButton();
+        resultPageService.clickOnSearchButton();
         productPageService = resultPageService.clickOnElementInTheList(expectedHeadset.getName());
         cartPageService = productPageService.clickAddCartButton();
         shoppingCartPageService = cartPageService.clickOnGoToCartButton();

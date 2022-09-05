@@ -13,6 +13,10 @@ public class LoginPage extends BasePage {
         return driver.findElement(By.xpath("//input[@name='password']"));
     }
 
+    public WebElement getSubmitButton() {
+        return driver.findElement(By.xpath("//input[@type='submit']"));
+    }
+
     public void addEmail(String email) {
         getEmailField().clear();
         getEmailField().sendKeys(email);
@@ -21,5 +25,9 @@ public class LoginPage extends BasePage {
     public void addPassword(String password) {
         getPasswordField().clear();
         getPasswordField().sendKeys(password);
+    }
+
+    public void clickOnSubmitButton() {
+        getSubmitButton().click();
     }
 }
