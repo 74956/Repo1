@@ -71,4 +71,9 @@ public class ResultPageService extends BasePageService {
         log.info("List of items name - " + listOfItemsName);
         return listOfItemsName;
     }
+
+    public void clickOnPriceSortingFilter() {
+        log.info("Click on price sorting filter");
+        resultPage.clickOnDropdownPriceFilter();
+    }
 }
