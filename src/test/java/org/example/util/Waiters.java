@@ -1,7 +1,6 @@
 package org.example.util;
 
 import org.example.driver.Driver;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,18 +27,9 @@ public class Waiters {
 
     public WebElement fluentWaitVisibilityOfElement(WebElement element){
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(5))
+                .withTimeout(Duration.ofSeconds(6))
                 .pollingEvery(Duration.ofSeconds(2))
                 .ignoring(NoSuchElementException.class);
         return wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
-    public WebElement fluentWaitElementToBeClickable(WebElement element){
-        Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(5))
-                .pollingEvery(Duration.ofSeconds(2))
-                .ignoring(NoSuchElementException.class)
-                .ignoring(TimeoutException.class);
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }

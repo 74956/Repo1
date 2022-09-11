@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 public class ProductPage extends BasePage {
 
     public WebElement getAddToCartButton() {
-        return driver.findElement(By.xpath("//input[@name='submit.add-to-cart']"));
+        return driver.findElement(By.xpath("(//input[@id='add-to-cart-button'])[1]"));
     }
 
     public WebElement getItemsInTheCart() {
@@ -23,6 +23,11 @@ public class ProductPage extends BasePage {
     }
 
     public void clickAddCartButton() {
-        waiters.fluentWaitElementToBeClickable(getAddToCartButton()).click();
+        if (getAddToCartButton().isDisplayed()) {
+            getAddToCartButton().click();
+        } else {
+            driver.navigate().refresh();
+            getAddToCartButton().click();
+        }
     }
 }

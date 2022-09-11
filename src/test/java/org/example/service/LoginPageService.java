@@ -27,4 +27,9 @@ public class LoginPageService extends BasePageService {
         clickOnSubmitButton();
         return new StartedPageService();
     }
+
+    public void clickOnSubmitButton() {
+        log.info("Click on submit button");
+        loginPage.clickOnSubmitButton();
+    }
 }

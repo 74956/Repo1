@@ -19,7 +19,6 @@ public class Driver {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
             options.addArguments("start-maximized");
             driver = new ChromeDriver(options);
         }

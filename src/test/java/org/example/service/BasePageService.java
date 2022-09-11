@@ -10,8 +10,4 @@ public class BasePageService {
 
     private BasePage basePage = new BasePage();
 
-    public void clickOnSubmitButton() {
-        log.info("Click on submit button");
-        basePage.clickOnSubmitButton();
-    }
 }
